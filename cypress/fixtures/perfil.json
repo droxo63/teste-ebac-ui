@@ -1,0 +1,7 @@
+{
+    "name": "Using fixtures to represent data",
+    "email": "diego@teste12.com.br",
+    "password": "Diego@123456",
+    "wrongemail": "diego@123",
+    "wrongpassword": "didi" 
+}
