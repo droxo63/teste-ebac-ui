@@ -4,7 +4,10 @@ describe('Funcionalidade de login', () => {
     beforeEach(() => {
         cy.visit('minha-conta/')
     });
-
+    
+    afterEach(() => {
+        cy.screenshot()
+    });
 
     it("Deve fazer login com sucesso", () => {
         

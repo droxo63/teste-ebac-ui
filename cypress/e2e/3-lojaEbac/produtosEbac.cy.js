@@ -5,15 +5,17 @@ describe('Funcionalidade de Produtos', () => {
         cy.visit('produtos/')
     });
 
+    afterEach(() => {
+        cy.screenshot()
+    });
 it('Deve selecionar um produto da lista', () => {
     
-   // cy.get('.block-inner')
+    cy.get('.block-inner')
     //.first()
     //.last()
-    //.eq(3)
-
-    cy.get('.post-2622 > .product-block > .caption > .meta > .infor > .name > a')
-    .contains("Ajax Full-Zip Sweatshirt")
+    .eq(3)
+    //cy.get('.post-2622 > .product-block > .caption > .meta > .infor > .name > a')
+    //.contains("Ajax Full-Zip Sweatshirt")
     .click()
 });
 })

@@ -8,6 +8,10 @@ describe('Funcionalidade de cadastro de usuário', () => {
         cy.visit("minha-conta/")
     });
 
+    afterEach(() => {
+        cy.screenshot()
+    });
+
     it('Deve registrar dados de acesso de usuario com sucesso', () => {
         var email = faker.internet.email()
         var password = faker.internet.password()
@@ -63,6 +67,9 @@ describe('Funcionalidade de cadastro de usuário', () => {
         cy.get('#account_first_name').type(firstname)
         cy.get('#account_last_name').type(lastname)
         cy.get('#account_display_name').type(displayname)
+        cy.get('.woocommerce-Button').click()
+        cy.get('.woocommerce-message').should('contain', "Detalhes da conta modificados com sucesso.")
+
 
     });
     it('Funcionalidade de cadastro com email repetido usando fixture', () => {
