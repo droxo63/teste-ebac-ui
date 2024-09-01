@@ -2,13 +2,7 @@
 import { faker } from "@faker-js/faker";
 describe('Funcionalidade de cadastro de usuário', () => {
     
-    before(() => {
-        var username = faker.person.firstName()
-        var lastname = faker.person.lastName()
-        var email = faker.internet.email()
-        var password = faker.internet.password()
 
-    });
     beforeEach(() => {
         cy.visit("http://lojaebac.ebaconline.art.br/minha-conta/")
     });
