@@ -49,7 +49,7 @@ describe('Funcionalidade de cadastro de usuário', () => {
         cy.get(':nth-child(4) > .button').click({force: true})
         cy.get('.woocommerce-error').should("contain", "Erro: Digite a senha da conta.")     
     });
-    it.only('Deve completar o registro de dados do usuario com sucesso', () => {
+    it('Deve completar o registro de dados do usuario com sucesso', () => {
         
         var password = faker.internet.password()
         var firstname = faker.person.firstName()
