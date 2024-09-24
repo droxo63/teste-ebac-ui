@@ -4,30 +4,29 @@
         "tamanho": "XS",
         "cor": "Blue",
         "qtd": 7
-    }
+    },
     {
         "nomeProduto": "Argus All-Weather Tank",
         "tamanho": "S",
         "cor": "Gray",
         "qtd": 10
-    }
+    },
     {
         "nomeProduto": "Abominable Hoodie",
         "tamanho": "M",
         "cor": "Green",
         "qtd": 25
-    }
+    },
     {
         "nomeProduto": "Hero Hoodie",
         "tamanho": "L",
         "cor": "Black",
         "qtd": 15
-    }
+    },
     {
         "nomeProduto": "Atlas Fitness Tank",
         "tamanho": "XL",
         "cor": "Red",
         "qtd": 5
     }
-
 ]
