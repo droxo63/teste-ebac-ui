@@ -20,18 +20,18 @@ class ProdutosPage {
     }
     
     visitarProduto(nomeProduto) {
-        cy.visit(`produtos/${nomeProduto}`)
+       // cy.visit(`produtos/${nomeProduto}`)
+       const urlFormatada = nomeProduto.replace(/ /g, "-")
+       cy.visit(`produtos/${urlFormatada}`)
     }
-    adicionarCarrinho() {
-        cy.get('.post-2559 > .product-block > .block-inner > .image > .product-image > .image-hover').click()
-        cy.get('.search > .tbay-search-form > .form-ajax-search > .form-group > .input-group > .button-group > .button-search').click()
+    adicionarCarrinho(tamanho, cor, qtd) {
+        cy.get('.button-variable-item-' + tamanho).click()
+        cy.get('.button-variable-item-' + cor).click()
+        cy.get('.input-text').clear().type(qtd)
+        cy.get('.single_add_to_cart_button').click()
     }
 
-    buscarProduto2(nomeProduto) {
-        cy.get('.page-title').contains("Produtos")
-        cy.get("[type='text']").eq(2).type(nomeProduto)
-        cy.get('.button-search').eq(2).click()
-    }
+    
 }
 
 export default new ProdutosPage()

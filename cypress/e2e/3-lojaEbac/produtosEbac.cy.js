@@ -8,33 +8,43 @@ beforeEach(() => {
     produtosPage.visitarUrl()
 });
 
-    it('Deve visitar a pagina do produto', () => {
-        cy.visit("aether-gym-pant/")
-        cy.get('.product_title').contains("Aether Gym Pant")
+    it.only('Deve visitar a pagina do produto', () => {
+        let produtoUrl = "aether-gym-pant"
+        let produto = "Aether Gym Pant"
+        produtosPage.visitarProduto(produto)
+        cy.get('.product_title').contains(produto)
         
     });
     it('Deve selecionar o produto com sucesso', () => {
-       
-        produtosPage.selecionarProduto("Abominable Hoodie")
-        cy.get('.product_title').contains("Abominable Hoodie")
+       let produto = "Abominable Hoodie"
+        produtosPage.selecionarProduto(produto)
+        cy.get('.product_title').contains(produto)
 
     });
     it("Deve buscar o produto com sucesso", ()=>{
-       
-        produtosPage.buscarProduto("Aero Daily Fitness Tee")
-        cy.get('.product_title').contains("Aero Daily Fitness Tee")
+       let produto = "Aero Daily Fitness Tee"
+        produtosPage.buscarProduto(produto)
+        cy.get('.product_title').contains(produto)
     })
 
     it('Deve adicionar produto no carrinho', () => {
+        let tamanho = "36"
+        let cor = "Green"
+        let qtd = 2
+        let nomeProduto = "Aether Gym Pant"
         produtosPage.buscarProduto("Aether Gym Pant")
-        cy.get('.button-variable-item-36').click()
-        cy.get('.button-variable-item-Green').click()
-        cy.get('.input-text').clear().type(2)
-        cy.get('.single_add_to_cart_button').click()
-        cy.get('.woocommerce-message').contains("2 × “Aether Gym Pant” foram adicionados no seu carrinho.")
-
-
+        produtosPage.adicionarCarrinho(tamanho, cor, qtd )
+        cy.get('.woocommerce-message').contains(`${qtd} × “Aether Gym Pant” foram adicionados no seu carrinho.`)
+    })
+        it('Deve adicionar produto no carrinho buscando da massa de dados', () => {
+            cy.fixture("dadosProdutos").then(dados =>{
+            produtosPage.buscarProduto(dados[1].nomeProduto)
+            produtosPage.adicionarCarrinho(dados[1].tamanho, dados[1].cor, dados[1].qtd )
+            cy.get('.woocommerce-message').should('contain', dados[1].nomeProduto)
+            })
+            
 
         
-    });
+   
+})
 })
